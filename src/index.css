@@ -1,0 +1,136 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Inter:wght@300;400;500;600;700&display=swap');
+
+@layer base {
+  :root {
+    --background: 210 20% 98%;
+    --foreground: 220 25% 10%;
+
+    --card: 0 0% 100%;
+    --card-foreground: 220 25% 10%;
+
+    --popover: 0 0% 100%;
+    --popover-foreground: 220 25% 10%;
+
+    --primary: 220 72% 45%;
+    --primary-foreground: 0 0% 100%;
+
+    --secondary: 210 25% 93%;
+    --secondary-foreground: 220 25% 15%;
+
+    --muted: 210 20% 94%;
+    --muted-foreground: 220 10% 45%;
+
+    --accent: 152 55% 42%;
+    --accent-foreground: 0 0% 100%;
+
+    --destructive: 0 72% 51%;
+    --destructive-foreground: 0 0% 100%;
+
+    --border: 214 20% 90%;
+    --input: 214 20% 88%;
+    --ring: 220 72% 45%;
+
+    --radius: 0.625rem;
+
+    --sidebar-background: 220 25% 12%;
+    --sidebar-foreground: 210 20% 92%;
+    --sidebar-primary: 220 72% 55%;
+    --sidebar-primary-foreground: 0 0% 100%;
+    --sidebar-accent: 220 20% 20%;
+    --sidebar-accent-foreground: 210 20% 92%;
+    --sidebar-border: 220 15% 22%;
+    --sidebar-ring: 220 72% 55%;
+
+    /* Custom civic tokens */
+    --civic-blue: 220 72% 45%;
+    --civic-blue-light: 220 72% 95%;
+    --civic-green: 152 55% 42%;
+    --civic-green-light: 152 40% 94%;
+    --civic-orange: 28 85% 55%;
+    --civic-orange-light: 28 80% 95%;
+    --civic-navy: 220 40% 15%;
+    --civic-slate: 215 15% 50%;
+
+    --gradient-hero: linear-gradient(135deg, hsl(220 72% 45%) 0%, hsl(220 60% 35%) 50%, hsl(152 55% 42%) 100%);
+    --gradient-card: linear-gradient(145deg, hsl(0 0% 100%) 0%, hsl(220 72% 98%) 100%);
+    --gradient-accent: linear-gradient(135deg, hsl(152 55% 42%) 0%, hsl(152 45% 50%) 100%);
+
+    --shadow-soft: 0 2px 12px -2px hsl(220 72% 45% / 0.08);
+    --shadow-card: 0 4px 24px -6px hsl(220 25% 10% / 0.06);
+    --shadow-elevated: 0 12px 40px -10px hsl(220 25% 10% / 0.1);
+
+    --font-display: 'Plus Jakarta Sans', sans-serif;
+    --font-body: 'Inter', sans-serif;
+  }
+
+  .dark {
+    --background: 220 25% 7%;
+    --foreground: 210 20% 92%;
+    --card: 220 22% 11%;
+    --card-foreground: 210 20% 92%;
+    --popover: 220 22% 11%;
+    --popover-foreground: 210 20% 92%;
+    --primary: 220 72% 55%;
+    --primary-foreground: 0 0% 100%;
+    --secondary: 220 18% 16%;
+    --secondary-foreground: 210 20% 92%;
+    --muted: 220 15% 18%;
+    --muted-foreground: 215 12% 55%;
+    --accent: 152 50% 45%;
+    --accent-foreground: 0 0% 100%;
+    --destructive: 0 62.8% 30.6%;
+    --destructive-foreground: 0 0% 100%;
+    --border: 220 15% 20%;
+    --input: 220 15% 20%;
+    --ring: 220 72% 55%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+  body {
+    @apply bg-background text-foreground;
+    font-family: var(--font-body);
+  }
+  h1, h2, h3, h4, h5, h6 {
+    font-family: var(--font-display);
+  }
+}
+
+@layer utilities {
+  .text-gradient {
+    @apply bg-clip-text text-transparent;
+    background-image: var(--gradient-hero);
+  }
+  .glass {
+    @apply backdrop-blur-md bg-background/85 border-b border-border/50;
+  }
+  .card-hover {
+    @apply transition-all duration-300 hover:shadow-[var(--shadow-elevated)] hover:-translate-y-0.5;
+  }
+  .animate-fade-up {
+    animation: fadeUp 0.6s ease-out forwards;
+  }
+  .animate-fade-in {
+    animation: fadeIn 0.5s ease-out forwards;
+  }
+  .civic-badge {
+    @apply inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-semibold;
+  }
+}
+
+@keyframes fadeUp {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
